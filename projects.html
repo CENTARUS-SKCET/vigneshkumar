@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Vignesh Kumar — Railway inspection rover, earth leakage detection systems.">
+    <title>Projects | Vignesh Kumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>VK<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="awards.html" class="nav-link">Awards</a></li>
+                <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects" style="min-height: 80vh; display: flex; align-items: center; padding-top: 140px;">
+        <div class="container" style="width: 100%;">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-folder-open"></i> Projects</span>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-project="railway" onclick="openProjectModal('railway')">
+                    <div class="project-image">
+                        <img src="images/railway-project.png" alt="Railway Track Crack Detection System" class="project-img">
+                        <div class="project-overlay">
+                            <span class="project-category">Embedded Systems</span>
+                        </div>
+                        <div class="project-view-btn">
+                            <i class="fas fa-expand"></i>
+                            <span>View Details</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Railway Track Crack Detection System</h3>
+                        <p class="project-description">
+                            Developed a rover-type railway inspection system using multiple sensors to detect track cracks and bends.
+                        </p>
+                        <div class="project-tech">
+                            <span>Embedded C</span>
+                            <span>Sensors</span>
+                            <span>Microcontroller</span>
+                            <span>IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-project="leakage" onclick="openProjectModal('leakage')">
+                    <div class="project-image">
+                        <img src="images/earth-leakage-project.png" alt="Earth Leakage Detection System" class="project-img">
+                        <div class="project-overlay">
+                            <span class="project-category">Smart India Hackathon</span>
+                        </div>
+                        <div class="project-view-btn">
+                            <i class="fas fa-expand"></i>
+                            <span>View Details</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Earth Leakage Detection System</h3>
+                        <p class="project-description">
+                            Sensor-based, microcontroller-driven system for real-time earth leakage detection.
+                        </p>
+                        <div class="project-tech">
+                            <span>Microcontroller</span>
+                            <span>Sensors</span>
+                            <span>Real-time</span>
+                            <span>Safety</span>
+                        </div>
+                        <div class="project-highlight">
+                            <i class="fas fa-trophy"></i>
+                            <span>SIH 2024 National-Level Finalist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>VK<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-text">Designed & Built by Vignesh Kumar</p>
+                <p class="footer-copyright">&copy; 2026 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-body">
+                <div class="modal-badge" id="modalBadge"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-description" id="modalDescription"></p>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> Objective</h3>
+                    <p id="modalObjective"></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-list-check"></i> Key Features</h3>
+                    <ul class="modal-features" id="modalFeatures"></ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-wrench"></i> Tech Stack</h3>
+                    <div class="modal-tech" id="modalTech"></div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> Outcome</h3>
+                    <p id="modalOutcome"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
